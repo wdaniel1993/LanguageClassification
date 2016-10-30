@@ -38,7 +38,7 @@ public class LanguageClassification {
 			double diffToNearest = Double.MAX_VALUE;
 			for(Language curLanguage : classes){
 				double compressionRate = calculateCompressionRate(curLanguage.getReferenceText() + content);
-				double diff = Math.abs(compressionRate - curLanguage.getCompressionRate());
+				double diff = compressionRate - curLanguage.getCompressionRate();
 				if(diffToNearest > diff){
 					diffToNearest = diff;
 					language = curLanguage;
