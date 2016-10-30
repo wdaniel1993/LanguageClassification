@@ -35,12 +35,14 @@ public class LanguageClassification {
 			Path file = path.getFileName();
 			String content = readFileContent(path);
 			Language language = null;
-			double diffToNearest = Double.MAX_VALUE;
+			double diffToCurrent = 0;
 			for(Language curLanguage : classes){
 				double compressionRate = calculateCompressionRate(curLanguage.getReferenceText() + content);
+				System.out.print("File " + file.toString() + " as " + curLanguage.getName() + ": " + compressionRate);
 				double diff = compressionRate - curLanguage.getCompressionRate();
-				if(diffToNearest > diff){
-					diffToNearest = diff;
+				System.out.println(" - Delta " + diff);
+				if(diffToCurrent > diff || language == null){
+					diffToCurrent = diff;
 					language = curLanguage;
 				}
 			}
