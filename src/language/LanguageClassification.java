@@ -2,7 +2,6 @@ package language;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -77,8 +76,7 @@ public class LanguageClassification {
 
 	private static String filterString(String unfiltered) {
 		String filtered = unfiltered;
-		filtered = Normalizer.normalize(filtered, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
-		filtered = filtered.replaceAll("\\s+","");
+		filtered = Normalizer.normalize(filtered, Normalizer.Form.NFD).replaceAll("[^a-zA-Z]", "");
 		filtered = filtered.toLowerCase();
 		return filtered;
 	}
