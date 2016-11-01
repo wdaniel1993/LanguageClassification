@@ -1,14 +1,20 @@
 package language;
 
+/**
+ * Language 
+ * Represents a language with a reference text and compression
+ *
+ */
 public class Language {
-	private double compressionRate;
+	private int compression;
 	private String referenceText;
 	private String name;
-	public double getCompressionRate() {
-		return compressionRate;
+	
+	public int getCompression() {
+		return compression;
 	}
-	public void setCompressionRate(double compressionRate) {
-		this.compressionRate = compressionRate;
+	public void setCompressionRate(int compression) {
+		this.compression = compression;
 	}
 	public String getReferenceText() {
 		return referenceText;
@@ -23,9 +29,9 @@ public class Language {
 		this.name = name;
 	}
 	
-	public Language(String name, double compressionRate, String referenceText) {
+	public Language(String name, int compression, String referenceText) {
 		super();
-		this.compressionRate = compressionRate;
+		this.compression = compression;
 		this.referenceText = referenceText;
 		this.name = name;
 	}
