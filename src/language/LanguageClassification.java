@@ -13,7 +13,6 @@ import java.util.zip.DeflaterOutputStream;
 
 public class LanguageClassification {
 
-	
 	public static void main(String[] args) throws IOException{
 		//Path to reference files
 		Path languagePath = Paths.get("input");
@@ -50,7 +49,8 @@ public class LanguageClassification {
 				int compression = calculateCompression(curLanguage.getReferenceText() + " " + content);
 				//Calculate compression delta
 				int diff = compression - curLanguage.getCompression();
-				
+				System.out.print("File " + file.toString() + " as " + curLanguage.getName() + ": " + compression);
+				System.out.println(" - Delta " + diff);
 				if(diffToCurrent > diff || language == null){
 					diffToCurrent = diff;
 					language = curLanguage;
@@ -107,6 +107,4 @@ public class LanguageClassification {
 		filtered = filtered.toUpperCase();
 		return filtered;
 	}
-	
-	
 }
